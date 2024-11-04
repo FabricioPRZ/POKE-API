@@ -1,0 +1,57 @@
+td {
+    padding: 15px 20px;
+    font-size: 17px;
+    color: #333333;
+    background: linear-gradient(135deg, #ffcb05, #f4a302); /* Amarillo a dorado */
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pokemon-name {
+    cursor: pointer;
+    color: #0059ff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-family: 'Verdana', sans-serif;
+}
+
+.pokemon-name:hover {
+    color: #d32f2f;
+    text-shadow: 1px 1px 6px rgba(211, 47, 47, 0.4);
+}
+
+.favorite-icon {
+    cursor: pointer;
+    font-size: 28px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    color: #ff8c00;
+}
+
+.favorite-icon:hover {
+    color: #ff0404;
+    transform: scale(1.15);
+}
+
+.favorite {
+    color: #d32f2f;
+    animation: pulse 0.3s ease;
+}
+
+.not-favorite {
+    color: #ffffff;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

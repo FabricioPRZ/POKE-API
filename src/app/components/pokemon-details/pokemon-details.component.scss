@@ -1,0 +1,78 @@
+.pokemon-details {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .pokemon-details h2 {
+    font-size: 2rem;
+    color: #ffcb05;
+    text-shadow: 1px 1px 2px #3b4cca;
+  }
+  
+  .pokemon-images {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .pokemon-images img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border: 2px solid #3b4cca;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  h3 {
+    color: #3b4cca;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px #ffcb05;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    font-size: 1rem;
+    color: #333;
+    background: #ffcb05;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  ul li::before {
+    content: '★';
+    margin-right: 8px;
+    color: #3b4cca;
+  }
+  
+  .pokemon-images img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .pokemon-details h2,
+  .pokemon-details h3 {
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  @media (max-width: 768px) {
+    .pokemon-images {
+      flex-direction: column;
+    }
+  }
+  

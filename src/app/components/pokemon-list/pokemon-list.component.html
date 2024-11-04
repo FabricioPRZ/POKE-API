@@ -1,0 +1,22 @@
+<table mat-table [dataSource]="pokemons" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let pokemon">
+        <span (click)="viewDetails(pokemon.name)" class="pokemon-name">
+          {{ pokemon.name | uppercasePokemon | titlecaseBattle | replaceLetters}}
+        </span>
+        <mat-icon
+          (click)="toggleFavorite(pokemon.name)"
+          [class.favorite]="favorites.has(pokemon.name)"
+          [class.not-favorite]="!favorites.has(pokemon.name)"
+          class="favorite-icon"
+        >
+          {{ favorites.has(pokemon.name) ? 'favorite' : 'favorite_border' }}
+        </mat-icon>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="['name']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['name']"></tr>
+  </table>
+  

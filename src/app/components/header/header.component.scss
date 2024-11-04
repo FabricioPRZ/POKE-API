@@ -1,0 +1,38 @@
+.pokemon-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #ffcb05;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Pokemon Solid', sans-serif;
+  }
+  
+  .pokemon-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/770px-Pok%C3%A9_Ball_icon.svg.png');
+    background-size: 150px;
+    background-repeat: repeat;
+    opacity: 0.15;
+    z-index: 0;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .pokeball-icon {
+    width: 150px;
+    height: auto;
+    margin-right: 10px;
+  }
+  

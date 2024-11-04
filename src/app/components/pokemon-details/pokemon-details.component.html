@@ -1,0 +1,30 @@
+<div *ngIf="pokemon">
+  <h2>{{ pokemon.name | uppercasePokemon }}</h2> <!-- Usando el pipe para nombres en mayúsculas -->
+  
+  <div class="pokemon-images">
+    <!-- Imagen por defecto -->
+    <img *ngIf="pokemon.sprites?.front_default" [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }} front" />
+    <!-- Imagen frontal brillante -->
+    <img *ngIf="pokemon.sprites?.front_shiny" [src]="pokemon.sprites.front_shiny" alt="{{ pokemon.name }} shiny front" />
+    <!-- Imagen trasera por defecto -->
+    <img *ngIf="pokemon.sprites?.back_default" [src]="pokemon.sprites.back_default" alt="{{ pokemon.name }} back" />
+    <!-- Imagen trasera brillante -->
+    <img *ngIf="pokemon.sprites?.back_shiny" [src]="pokemon.sprites.back_shiny" alt="{{ pokemon.name }} shiny back" />
+    <!-- Imagen oficial de arte -->
+    <img *ngIf="pokemon.sprites?.other?.official_artwork?.front_default" [src]="pokemon.sprites.other.official_artwork.front_default" alt="{{ pokemon.name }} artwork" />
+  </div>
+
+  <h3>Habilidades</h3>
+  <ul>
+    <li *ngFor="let ability of pokemon.abilities">
+      {{ ability.ability.name | uppercasePokemon | titlecaseBattle | replaceLetters }}
+    </li>
+  </ul>
+
+  <h3>Juegos</h3>
+  <ul>
+    <li *ngFor="let game of pokemon.game_indices">
+      {{ game.version.name | uppercasePokemon | titlecaseBattle | replaceLetters }}
+    </li>
+  </ul>
+</div>
