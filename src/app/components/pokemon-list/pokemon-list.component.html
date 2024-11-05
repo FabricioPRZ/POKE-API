@@ -3,7 +3,7 @@
       <th mat-header-cell *matHeaderCellDef> Nombre </th>
       <td mat-cell *matCellDef="let pokemon">
         <span (click)="viewDetails(pokemon.name)" class="pokemon-name">
-          {{ pokemon.name | uppercasePokemon | titlecaseBattle | replaceLetters}}
+          {{ pokemon.name | uppercasePokemon | replaceLetters}}
         </span>
         <mat-icon
           (click)="toggleFavorite(pokemon.name)"

@@ -5,12 +5,11 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReplaceLettersPipe } from '../../pipes/replace-letters.pipe';
 import { UppercasePokemonPipe } from '../../pipes/uppercase-pokemon.pipe';
-import { TitlecaseBattlePipe } from '../../pipes/titlecase-battle.pipe';
 
 @Component({
   selector: 'app-pokemon-details',
   standalone: true,
-  imports: [CommonModule, TitlecaseBattlePipe, ReplaceLettersPipe,  UppercasePokemonPipe],
+  imports: [CommonModule, ReplaceLettersPipe,  UppercasePokemonPipe],
 
 
   templateUrl: './pokemon-details.component.html',
@@ -33,10 +32,10 @@ export class PokemonDetailsComponent implements OnInit {
 
   loadPokemonDetails(name: string): void {
     this.pokemonService.getPokemonDetails(name).subscribe(response => {
-      console.log(response);  // Inspecciona la respuesta aquí
-      this.pokemon = response; // Asegúrate de que 'response' tiene la estructura esperada
+      console.log(response);
+      this.pokemon = response;
     }, error => {
-      console.error(error); // Maneja el error si ocurre
+      console.error(error);
     });
   }  
 }

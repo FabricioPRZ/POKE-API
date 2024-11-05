@@ -6,12 +6,11 @@ import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { ReplaceLettersPipe } from '../../pipes/replace-letters.pipe';
 import { UppercasePokemonPipe } from '../../pipes/uppercase-pokemon.pipe';
-import { TitlecaseBattlePipe } from '../../pipes/titlecase-battle.pipe';
 
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [ MatIconModule,  MatTableModule, CommonModule,  ReplaceLettersPipe, UppercasePokemonPipe, TitlecaseBattlePipe ],
+  imports: [ MatIconModule,  MatTableModule, CommonModule,  ReplaceLettersPipe, UppercasePokemonPipe ],
 
 
 

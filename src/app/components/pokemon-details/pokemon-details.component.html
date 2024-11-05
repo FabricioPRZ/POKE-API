@@ -1,5 +1,5 @@
 <div *ngIf="pokemon">
-  <h2>{{ pokemon.name | uppercasePokemon }}</h2> <!-- Usando el pipe para nombres en mayúsculas -->
+  <h2>{{ pokemon.name | uppercasePokemon }}</h2>
   
   <div class="pokemon-images">
     <!-- Imagen por defecto -->
@@ -17,14 +17,14 @@
   <h3>Habilidades</h3>
   <ul>
     <li *ngFor="let ability of pokemon.abilities">
-      {{ ability.ability.name | uppercasePokemon | titlecaseBattle | replaceLetters }}
+      {{ ability.ability.name | uppercasePokemon | replaceLetters }}
     </li>
   </ul>
 
   <h3>Juegos</h3>
   <ul>
     <li *ngFor="let game of pokemon.game_indices">
-      {{ game.version.name | uppercasePokemon | titlecaseBattle | replaceLetters }}
+      {{ game.version.name | uppercasePokemon | replaceLetters }}
     </li>
   </ul>
 </div>
