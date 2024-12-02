@@ -1,30 +1,46 @@
-<div *ngIf="pokemon">
+<div *ngIf="pokemon" class="pokemon-details">
   <h2>{{ pokemon.name | uppercasePokemon }}</h2>
-  
+
   <div class="pokemon-images">
     <!-- Imagen por defecto -->
-    <img *ngIf="pokemon.sprites?.front_default" [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }} front" />
+    <img *ngIf="pokemon.sprites?.front_default" [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }} front" class="pokemon-image"/>
     <!-- Imagen frontal brillante -->
-    <img *ngIf="pokemon.sprites?.front_shiny" [src]="pokemon.sprites.front_shiny" alt="{{ pokemon.name }} shiny front" />
+    <img *ngIf="pokemon.sprites?.front_shiny" [src]="pokemon.sprites.front_shiny" alt="{{ pokemon.name }} shiny front" class="pokemon-image shiny"/>
     <!-- Imagen trasera por defecto -->
-    <img *ngIf="pokemon.sprites?.back_default" [src]="pokemon.sprites.back_default" alt="{{ pokemon.name }} back" />
+    <img *ngIf="pokemon.sprites?.back_default" [src]="pokemon.sprites.back_default" alt="{{ pokemon.name }} back" class="pokemon-image"/>
     <!-- Imagen trasera brillante -->
-    <img *ngIf="pokemon.sprites?.back_shiny" [src]="pokemon.sprites.back_shiny" alt="{{ pokemon.name }} shiny back" />
+    <img *ngIf="pokemon.sprites?.back_shiny" [src]="pokemon.sprites.back_shiny" alt="{{ pokemon.name }} shiny back" class="pokemon-image shiny"/>
     <!-- Imagen oficial de arte -->
-    <img *ngIf="pokemon.sprites?.other?.official_artwork?.front_default" [src]="pokemon.sprites.other.official_artwork.front_default" alt="{{ pokemon.name }} artwork" />
+    <img *ngIf="pokemon.sprites?.other?.official_artwork?.front_default" [src]="pokemon.sprites.other.official_artwork.front_default" alt="{{ pokemon.name }} artwork" class="pokemon-image artwork"/>
   </div>
 
-  <h3>Habilidades</h3>
-  <ul>
-    <li *ngFor="let ability of pokemon.abilities">
-      {{ ability.ability.name | uppercasePokemon | replaceLetters }}
-    </li>
-  </ul>
+  <div class="pokemon-info">
+    <div class="column">
+      <h3>Habilidades</h3>
+      <ul>
+        <li *ngFor="let ability of pokemon.abilities">
+          {{ ability.ability.name | uppercasePokemon | replaceLetters }}
+        </li>
+      </ul>
+    </div>
 
-  <h3>Juegos</h3>
-  <ul>
-    <li *ngFor="let game of pokemon.game_indices">
-      {{ game.version.name | uppercasePokemon | replaceLetters }}
-    </li>
-  </ul>
+    <div class="column">
+      <h3>Juegos</h3>
+      <ul>
+        <li *ngFor="let game of pokemon.game_indices">
+          {{ game.version.name | uppercasePokemon | replaceLetters }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="column">
+      <h3>Estadísticas de batalla</h3>
+      <ul>
+        <li *ngFor="let stat of pokemon.stats">
+          <strong>{{ stat.stat.name | uppercasePokemon }}:</strong> 
+          {{ stat.base_stat }} (Esfuerzo: {{ stat.effort }})
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

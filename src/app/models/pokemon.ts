@@ -1,3 +1,12 @@
+export interface BattleStat {
+  stat: {
+    name: string;
+    url: string;
+  };
+  effort: number;
+  base_stat: number;
+}
+
 export interface Pokemon {
   name: string;
   sprites: {
@@ -21,4 +30,5 @@ export interface Pokemon {
       name: string;
     };
   }>;
+  stats: BattleStat[];
 }

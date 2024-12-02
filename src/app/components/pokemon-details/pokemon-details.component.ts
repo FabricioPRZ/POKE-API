@@ -9,11 +9,9 @@ import { UppercasePokemonPipe } from '../../pipes/uppercase-pokemon.pipe';
 @Component({
   selector: 'app-pokemon-details',
   standalone: true,
-  imports: [CommonModule, ReplaceLettersPipe,  UppercasePokemonPipe],
-
-
+  imports: [CommonModule, ReplaceLettersPipe, UppercasePokemonPipe],
   templateUrl: './pokemon-details.component.html',
-  styleUrl: './pokemon-details.component.scss'
+  styleUrls: ['./pokemon-details.component.scss']
 })
 export class PokemonDetailsComponent implements OnInit {
   pokemon: Pokemon | undefined;
@@ -37,5 +35,5 @@ export class PokemonDetailsComponent implements OnInit {
     }, error => {
       console.error(error);
     });
-  }  
+  }
 }

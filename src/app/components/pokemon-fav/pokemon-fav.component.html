@@ -1,0 +1,27 @@
+<div *ngIf="favoritePokemons.length > 0; else noFavorites">
+  <h2 class="h2-title">Tu lista de Pokémon favoritos</h2>
+  <div class="pokemon-cards">
+    <div *ngFor="let pokemon of favoritePokemons" class="pokemon-card">
+      <div class="pokeball-container">
+        <div class="pokeball">
+          <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" class="pokemon-image">
+        </div>
+        <div class="pokemon-info">
+          <h3>{{ pokemon.name | uppercasePokemon | replaceLetters }}</h3>
+          <a [routerLink]="['/pokemondetails', pokemon.name]">
+            <mat-icon class="favorite-icon">info</mat-icon>
+          </a>
+          <mat-icon (click)="removeFavorite(pokemon.name)" class="favorite-icon">favorite</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noFavorites>
+  <div class="no-favorites-message">
+    <h3>No has seleccionado ningún Pokémon favorito.</h3>
+    <p>Agrega Pokémones a tus favoritos para que aparezcan aquí.</p>
+    <img src="https://fc07.deviantart.net/fs70/f/2012/152/f/d/rendered_open_pokeball_by_johtoproject-d51ysgb.png" alt="Pokeball Empty" class="no-favorites-image">
+  </div>
+</ng-template>

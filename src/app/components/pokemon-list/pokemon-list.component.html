@@ -1,10 +1,17 @@
-<table mat-table [dataSource]="pokemons" class="mat-elevation-z8">
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let pokemon">
+<table mat-table [dataSource]="filteredPokemons" class="pokedex-table">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef class="pokedex-header"> Pokémon </th>
+    <td mat-cell *matCellDef="let pokemon">
+      <div class="pokemon-cell">
         <span (click)="viewDetails(pokemon.name)" class="pokemon-name">
-          {{ pokemon.name | uppercasePokemon | replaceLetters}}
+          {{ pokemon.name | uppercasePokemon | replaceLetters }}
         </span>
+        
+        <!-- Botón de Favoritos -->
+        <button (click)="redirect_to_favorites($event)" class="favorite-button">
+          <i class="fas fa-heart"></i> Ver Favoritos
+        </button>
+
         <mat-icon
           (click)="toggleFavorite(pokemon.name)"
           [class.favorite]="favorites.has(pokemon.name)"
@@ -13,10 +20,14 @@
         >
           {{ favorites.has(pokemon.name) ? 'favorite' : 'favorite_border' }}
         </mat-icon>
-      </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="['name']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['name']"></tr>
-  </table>
-  
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['name']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['name']"></tr>
+</table>
+
+<div *ngIf="favoriteLimitReached" class="favorite-limit-warning">
+  ¡Solo puedes agregar hasta 5 Pokémon favoritos!
+</div>
